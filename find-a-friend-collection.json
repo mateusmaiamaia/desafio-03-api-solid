@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2025-07-21T17:43:00.000Z",
+  "__export_date": "2025-07-21T15:37:00.000Z",
   "__export_source": "insomnia.desktop.app:v2023.5.8",
   "resources": [
     {
@@ -17,17 +17,19 @@
     {
       "_id": "env_1",
       "parentId": "wrk_1",
-      "modified": 1689959000000,
+      "modified": 1689963000000,
       "created": 1689958800000,
       "name": "Base Environment",
       "data": {
         "base_url": "http://localhost:3333",
-        "bearer_token": ""
+        "bearer_token": "",
+        "pet_id": ""
       },
       "dataPropertyOrder": {
         "&": [
           "base_url",
-          "bearer_token"
+          "bearer_token",
+          "pet_id"
         ]
       },
       "color": null,
@@ -69,13 +71,6 @@
       ],
       "authentication": {},
       "metaSortKey": -1689958800000,
-      "isPrivate": false,
-      "settingStoreCookies": true,
-      "settingSendCookies": true,
-      "settingDisableRenderRequestBody": false,
-      "settingEncodeUrl": true,
-      "settingRebuildPath": true,
-      "settingFollowRedirects": "global",
       "_type": "request"
     },
     {
@@ -100,13 +95,6 @@
       ],
       "authentication": {},
       "metaSortKey": -1689958700000,
-      "isPrivate": false,
-      "settingStoreCookies": true,
-      "settingSendCookies": true,
-      "settingDisableRenderRequestBody": false,
-      "settingEncodeUrl": true,
-      "settingRebuildPath": true,
-      "settingFollowRedirects": "global",
       "_type": "request"
     },
     {
@@ -147,13 +135,45 @@
         "prefix": "Bearer "
       },
       "metaSortKey": -1689959300000,
-      "isPrivate": false,
-      "settingStoreCookies": true,
-      "settingSendCookies": true,
-      "settingDisableRenderRequestBody": false,
-      "settingEncodeUrl": true,
-      "settingRebuildPath": true,
-      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_4",
+      "parentId": "fld_2",
+      "modified": 1689961500000,
+      "created": 1689960600000,
+      "url": "{{ _.base_url }}/pets",
+      "name": "Search Pets",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_1",
+          "name": "city",
+          "value": "São Paulo",
+          "description": ""
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1689959250000,
+      "_type": "request"
+    },
+    {
+      "_id": "req_5",
+      "parentId": "fld_2",
+      "modified": 1689963420000,
+      "created": 1689963420000,
+      "url": "{{ _.base_url }}/pets/{{ _.pet_id }}",
+      "name": "Get Pet Details",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1689959200000,
       "_type": "request"
     }
   ]
