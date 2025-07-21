@@ -3,6 +3,12 @@ import { Pet } from '@prisma/client'
 
 interface SearchPetsByCityUseCaseRequest {
   city: string
+  // Adicionando os filtros opcionais
+  age?: string
+  size?: string
+  energy_level?: string
+  independence?: string
+  environment?: string
 }
 
 interface SearchPetsByCityUseCaseResponse {
@@ -14,10 +20,19 @@ export class SearchPetsByCityUseCase {
 
   async execute({
     city,
+    age,
+    size,
+    energy_level,
+    independence,
+    environment,
   }: SearchPetsByCityUseCaseRequest): Promise<SearchPetsByCityUseCaseResponse> {
-    // A validação de que a cidade foi informada será feita no controller,
-    // mas o caso de uso executa a busca.
-    const pets = await this.petsRepository.findManyByCity(city)
+    const pets = await this.petsRepository.findManyByCity(city, {
+      age,
+      size,
+      energy_level,
+      independence,
+      environment,
+    })
 
     return {
       pets,
