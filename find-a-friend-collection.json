@@ -1,0 +1,80 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-07-21T17:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "wrk_1",
+      "parentId": null,
+      "modified": 1689958800000,
+      "created": 1689958800000,
+      "name": "Find a Friend API",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_1",
+      "parentId": "wrk_1",
+      "modified": 1689958800000,
+      "created": 1689958800000,
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3333"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1689958800000,
+      "_type": "environment"
+    },
+    {
+      "_id": "fld_1",
+      "parentId": "wrk_1",
+      "modified": 1689958800000,
+      "created": 1689958800000,
+      "name": "Orgs",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1689958800000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_1",
+      "parentId": "fld_1",
+      "modified": 1689958800000,
+      "created": 1689958800000,
+      "url": "{{ _.base_url }}/orgs",
+      "name": "Create Org",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"org_name\": \"ONG Patinhas Felizes\",\n\t\"author_name\": \"Maria Silva\",\n\t\"email\": \"contato@patinhasfelizes.com\",\n\t\"whatsapp_number\": \"11987654321\",\n\t\"password\": \"minhasenha123\",\n\t\"address\": \"Rua das Flores, 123\",\n\t\"cep\": \"01234-567\",\n\t\"city\": \"São Paulo\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1689958800000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    }
+  ]
+}

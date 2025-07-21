@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    // Versão do JavaScript que será gerada no final
+    "target": "ES2022",
+    // Sistema de módulos do projeto
+    "module": "NodeNext",
+    // Como o Node.js resolve os módulos
+    "moduleResolution": "NodeNext",
+    // Diretório base para os "paths"
+    "baseUrl": ".",
+    // A 'mágica' para resolver os erros de importação.
+    // Diz ao TypeScript que qualquer import que começar com "@/" deve procurar dentro da pasta "src/".
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    // Boas práticas e configurações de qualidade de código
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}

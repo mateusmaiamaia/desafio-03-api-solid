@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Org {
+  id              String  @id @default(uuid())
+  name            String
+  author_name     String
+  email           String  @unique
+  password_hash   String
+  whatsapp_number String
+  address         String
+  city            String
+  cep             String
+
+  pets Pet[] // Uma ORG pode ter vários pets
+
+  @@map("orgs") // Mapeia este modelo para a tabela "orgs" no banco de dados
+}
+
+model Pet {
+  id           String @id @default(uuid())
+  name         String
+  about        String
+  age          String // Ex: "Filhote", "Adulto"
+  size         String // Ex: "Pequenino", "Medio", "Grande"
+  energy_level String // Ex: "Baixa", "Media", "Alta"
+  independence String // Ex: "Baixo", "Medio", "Alto"
+  environment  String // Ex: "Ambiente amplo", "Apartamento"
+
+  // Relacionamento: Um Pet pertence a uma ORG 
+  org    Org    @relation(fields: [org_id], references: [id])
+  org_id String
+
+  @@map("pets") // Mapeia este modelo para a tabela "pets" no banco de dados
+}
