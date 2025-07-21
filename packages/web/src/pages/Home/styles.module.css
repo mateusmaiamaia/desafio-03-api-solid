@@ -1,0 +1,30 @@
+.container {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fdeced;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header p {
+  color: #0d3b66;
+}
+
+.header select {
+  width: 200px;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background-color: #f5f5f5;
+}
+
+.petsGrid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
