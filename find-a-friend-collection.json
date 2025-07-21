@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2025-07-21T17:00:00.000Z",
+  "__export_date": "2025-07-21T17:43:00.000Z",
   "__export_source": "insomnia.desktop.app:v2023.5.8",
   "resources": [
     {
@@ -17,15 +17,17 @@
     {
       "_id": "env_1",
       "parentId": "wrk_1",
-      "modified": 1689958800000,
+      "modified": 1689959000000,
       "created": 1689958800000,
       "name": "Base Environment",
       "data": {
-        "base_url": "http://localhost:3333"
+        "base_url": "http://localhost:3333",
+        "bearer_token": ""
       },
       "dataPropertyOrder": {
         "&": [
-          "base_url"
+          "base_url",
+          "bearer_token"
         ]
       },
       "color": null,
@@ -67,6 +69,84 @@
       ],
       "authentication": {},
       "metaSortKey": -1689958800000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_2",
+      "parentId": "fld_1",
+      "modified": 1689959100000,
+      "created": 1689959100000,
+      "url": "{{ _.base_url }}/sessions",
+      "name": "Authenticate Org",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"contato@patinhasfelizes.com\",\n\t\"password\": \"minhasenha123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1689958700000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_2",
+      "parentId": "wrk_1",
+      "modified": 1689959200000,
+      "created": 1689959200000,
+      "name": "Pets",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1689958750000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_3",
+      "parentId": "fld_2",
+      "modified": 1689959300000,
+      "created": 1689959300000,
+      "url": "{{ _.base_url }}/pets",
+      "name": "Create Pet",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Caramelo\",\n\t\"about\": \"Um vira-lata muito dócil e amigável.\",\n\t\"age\": \"Adulto\",\n\t\"size\": \"Medio\",\n\t\"energy_level\": \"Media\",\n\t\"independence\": \"Medio\",\n\t\"environment\": \"Ambiente amplo\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearer_token }}",
+        "prefix": "Bearer "
+      },
+      "metaSortKey": -1689959300000,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
