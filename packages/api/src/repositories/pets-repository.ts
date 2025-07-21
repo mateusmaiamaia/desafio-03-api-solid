@@ -11,6 +11,6 @@ export interface FindManyByCityFilters {
 
 export interface PetsRepository {
   create(data: Prisma.PetUncheckedCreateInput): Promise<Pet>
-  // Garanta que a assinatura deste método esteja correta
+  findById(id: string): Promise<Pet | null> 
   findManyByCity(city: string, filters: FindManyByCityFilters): Promise<Pet[]>
 }
