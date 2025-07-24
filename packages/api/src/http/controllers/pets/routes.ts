@@ -8,7 +8,7 @@ export async function petsRoutes(app: FastifyInstance) {
   // Rota pública para buscar pets
   app.get('/pets', searchByCity) 
 
-  app.get('/pets/:petId', getDetails) // ADICIONE ESTA ROTA
+  app.get('/pets/:petId', getDetails) 
 
   // Rota privada para cadastrar pets
   app.post('/pets', { onRequest: [verifyJwt] }, registerPet)
