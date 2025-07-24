@@ -1,33 +1,20 @@
-import { useState } from 'react'
-import { Sidebar } from './components/Sidebar'
+import { Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home'
-import { api } from './services/api'
-import './index.css'
-
-interface Pet {
-  id: string
-  name: string
-}
+import { PetDetails } from './pages/PetDetails'
+import { DefaultLayout } from './components/DefaultLayout'
+import { Login } from './pages/Login' // IMPORTE AQUI
 
 export function App() {
-  const [pets, setPets] = useState<Pet[]>([])
-
-  async function searchPets(city: string) {
-    try {
-      const response = await api.get('/pets', {
-        params: { city },
-      })
-      setPets(response.data.pets)
-    } catch (error) {
-      console.error('Erro ao buscar pets:', error)
-      // Idealmente, mostrar um feedback de erro para o usuário
-    }
-  }
-
   return (
-    <div style={{ display: 'flex' }}>
-      <Sidebar onSearch={searchPets} />
-      <Home pets={pets} />
-    </div>
+    <Routes>
+      {/* Rotas com o layout padrão (Sidebar) */}
+      <Route path="/" element={<DefaultLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/pets/:id" element={<PetDetails />} />
+      </Route>
+
+      {/* Rota de Login (sem Sidebar) */}
+      <Route path="/login" element={<Login />} />
+    </Routes>
   )
 }

@@ -8,9 +8,12 @@ export class PrismaPetsRepository implements PetsRepository {
       where: {
         id,
       },
+      include: { // ADICIONE ESTA LINHA PARA INCLUIR DADOS DA ORG
+        org: true,
+      },
     })
 
-    return pet // Corrigido para retornar 'pet'
+    return pet
   }
 
   async findManyByCity(city: string, filters: FindManyByCityFilters) {

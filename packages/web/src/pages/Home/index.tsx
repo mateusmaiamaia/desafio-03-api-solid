@@ -1,29 +1,36 @@
+import { useEffect, useState } from 'react'
 import { PetCard } from '@/components/PetCard'
+import { api } from '@/services/api'
 import styles from './styles.module.css'
 
+// Definindo a interface para o objeto Pet
 interface Pet {
   id: string
   name: string
 }
 
-interface HomeProps {
-  pets: Pet[]
-}
+export function Home() {
+  // Especificando o tipo para o useState
+  const [pets, setPets] = useState<Pet[]>([])
 
-export function Home({ pets }: HomeProps) {
+  useEffect(() => {
+    async function fetchPets() {
+      const response = await api.get('/pets', { params: { city: 'São Paulo' } })
+      setPets(response.data.pets)
+    }
+    fetchPets()
+  }, [])
+
   return (
     <main className={styles.container}>
       <header className={styles.header}>
         <p>
           Encontre <strong>{pets.length} amigos</strong> na sua cidade
         </p>
-        <select name="filter">
-          <option value="all">Gatos e Cachorros</option>
-          <option value="cats">Gatos</option>
-          <option value="dogs">Cachorros</option>
+        <select>
+          <option>Gatos e Cachorros</option>
         </select>
       </header>
-
       <div className={styles.petsGrid}>
         {pets.map((pet) => (
           <PetCard
