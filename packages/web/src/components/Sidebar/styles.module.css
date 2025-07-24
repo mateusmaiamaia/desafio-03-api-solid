@@ -1,6 +1,6 @@
 .sidebar {
   background-color: #f15156;
-  width: 380px; /* Aumentando a largura para acomodar os filtros */
+  width: 380px;
   min-height: 100vh;
   padding: 2.5rem;
   display: flex;
@@ -13,37 +13,46 @@
   gap: 1.5rem;
 }
 
+.logo {
+  width: 48px;
+  height: 48px;
+}
+
 .location {
   display: flex;
   gap: 0.5rem;
 }
 
-.location select {
+.location select,
+.location input {
   flex: 1;
   padding: 0.75rem;
   border: 1px solid #e63940;
-  border-radius: 15px; /* Arredondando as bordas */
+  border-radius: 15px;
   background-color: #f75f64;
   color: white;
-  font-weight: 800; /* Deixando a fonte mais forte */
+  font-weight: 800;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   text-indent: 1rem;
 }
 
+.location input::placeholder {
+  color: #fdeced;
+}
+
 .location button {
   padding: 0.75rem;
   border: 0;
-  border-radius: 15px; /* Arredondando as bordas */
-  background-color: #f4d35e; /* Ajustando a cor do botão */
+  border-radius: 15px;
+  background-color: #f4d35e;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 
-/* ESTILOS DOS FILTROS ADICIONADOS ABAIXO */
 .filters {
   margin-top: 4rem;
   color: white;

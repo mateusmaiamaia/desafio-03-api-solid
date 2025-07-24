@@ -9,7 +9,7 @@ export function Register() {
   const [email, setEmail] = useState('')
   const [cep, setCep] = useState('')
   const [address, setAddress] = useState('')
-  const [city, setCity] = useState('') // Estado para a cidade
+  const [city, setCity] = useState('')
   const [whatsappNumber, setWhatsappNumber] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -31,7 +31,7 @@ export function Register() {
         email,
         cep,
         address,
-        city, // Enviando a cidade para a API
+        city,
         whatsapp_number: whatsappNumber,
         password,
       })
@@ -47,7 +47,12 @@ export function Register() {
   return (
     <div className={styles.container}>
       <aside className={styles.illustration}>
-        <img src="/logo-with-text.svg" alt="Find A Friend" />
+        <img src="/logo.png" alt="Find A Friend" className={styles.logo} />
+        <img
+          src="/dogs.jpg"
+          alt="Ilustração de cachorros"
+          className={styles.dogs}
+        />
       </aside>
 
       <main className={styles.content}>
@@ -98,7 +103,6 @@ export function Register() {
               onChange={(e) => setAddress(e.target.value)}
             />
           </div>
-          {/* CAMPO CIDADE ADICIONADO ABAIXO */}
           <div className={styles.inputGroup}>
             <label htmlFor="city">Cidade</label>
             <input

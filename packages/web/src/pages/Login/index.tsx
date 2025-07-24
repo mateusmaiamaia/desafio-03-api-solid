@@ -1,19 +1,18 @@
 import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '@/contexts/AuthContexts' 
+import { useAuth } from '@/contexts/AuthContexts'
 import styles from './styles.module.css'
 
 export function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
-  const { signIn } = useAuth() // USE O CONTEXTO AQUI
+  const { signIn } = useAuth()
 
   async function handleLogin(event: FormEvent) {
     event.preventDefault()
 
     try {
-      // Use a função 'signIn' do contexto
       await signIn({ email, password })
       navigate('/')
     } catch (error) {
@@ -25,7 +24,12 @@ export function Login() {
   return (
     <div className={styles.container}>
       <aside className={styles.illustration}>
-        <img src="/logo-with-text.svg" alt="Find A Friend" />
+        <img src="/logo.png" alt="Find A Friend" className={styles.logo} />
+        <img
+          src="/dogs.jpg"
+          alt="Ilustração de cachorros"
+          className={styles.dogs}
+        />
       </aside>
 
       <main className={styles.content}>
