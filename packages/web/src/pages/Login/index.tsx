@@ -1,26 +1,20 @@
 import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { api } from '@/services/api'
+import { useAuth } from '@/contexts/AuthContexts' 
 import styles from './styles.module.css'
 
 export function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
+  const { signIn } = useAuth() // USE O CONTEXTO AQUI
 
   async function handleLogin(event: FormEvent) {
-    event.preventDefault() // Impede o recarregamento da página
+    event.preventDefault()
 
     try {
-      const response = await api.post('/sessions', {
-        email,
-        password,
-      })
-
-      // Futuramente, vamos salvar o token (response.data.token)
-      console.log('Login bem-sucedido!', response.data.token)
-
-      // Redireciona o usuário para a página principal
+      // Use a função 'signIn' do contexto
+      await signIn({ email, password })
       navigate('/')
     } catch (error) {
       alert('E-mail ou senha inválidos. Tente novamente.')
